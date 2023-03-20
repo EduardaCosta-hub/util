@@ -1,5 +1,10 @@
 from Cep import Cep
+from Logradouro import Logradouro
+cep3 = Cep('01001-000')
+cep3.extrai_informacoes_cep()
+print(cep3.cep_formatado)
+print(cep3.localidade)
 
-cep2 = Cep('meu cep é 93700000 asldfsa 1234e5110')
-print(cep2.cep)
-cep2.requisicao_via_cep()
+logradouro1 = Logradouro('01001-000')
+print(logradouro1.cep_formatado)
+print(logradouro1.complemento)
