@@ -2,6 +2,7 @@ import re, requests
 class Cep():
     def __init__(self, cep):
         self.__cep = self.higieniza_cep(cep)
+        self.extrai_informacoes_cep()
         
     #Methods
     def busca_padrao_cep(self, cep):
@@ -38,12 +39,12 @@ class Cep():
     def extrai_informacoes_cep(self):
         #separa os dados do json retornado pela via cep entre os atributos da classe
         dados = self.__requisicao_via_cep()
-        self.__cep_formatado = dados['cep']
-        self.__logradouro = dados['logradouro']
-        self.__complemento = dados['complemento']
-        self.__bairro = dados['bairro']
-        self.__localidade = dados['localidade']
-        self.__uf = dados['uf']
+        self.__cep_formatado = str(dados['cep'])
+        self.__logradouro = str(dados['logradouro'])
+        self.__complemento = str(dados['complemento'])
+        self.__bairro = str(dados['bairro'])
+        self.__localidade = str(dados['localidade'])
+        self.__uf = str(dados['uf'])
         
     #Properties
     @property

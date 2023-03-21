@@ -1,13 +1,9 @@
 from Cep import Cep
-class Logradouro():
+class Endereco(Cep):
     def __init__(self, cep):
-        self.__cep = Cep(cep)
-    
-    #Methods
-    def extrai_informacoes_cep(self):
-        self.__cep.extrai_informacoes_cep()
+        super().__init__(cep)
         
-    #Properties
-    @property
-    def cep(self):
-        return self.__cep
+    #Methods
+    def verifica_campos_obrigatorios(self):
+        if not(self.bairro):
+            print("Bairro está vazio")
