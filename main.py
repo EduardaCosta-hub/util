@@ -5,5 +5,5 @@ cep3.extrai_informacoes_cep()
 print(cep3.cep_formatado)
 print(cep3.localidade)
 
-logradouro1 = Endereco('01001-000')
-print(logradouro1.cep_formatado)
+logradouro1 = Endereco('93700000')
+print(logradouro1)

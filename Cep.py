@@ -37,16 +37,34 @@ class Cep():
             return True #se não econtra erro, retorna verdadeiro
 
     def extrai_informacoes_cep(self):
-        #separa os dados do json retornado pela via cep entre os atributos da classe
+        #separa os dados do json retornado pela via cep entre as propriedades da classe
         dados = self.__requisicao_via_cep()
+        self.__dados = dados
         self.__cep_formatado = str(dados['cep'])
         self.__logradouro = str(dados['logradouro'])
         self.__complemento = str(dados['complemento'])
         self.__bairro = str(dados['bairro'])
         self.__localidade = str(dados['localidade'])
         self.__uf = str(dados['uf'])
-        
+
+    #Special methods
+    def __str__(self):
+        texto = f"CEP: {self.cep_formatado}"
+        texto += f"\nLogradouro: {self.logradouro}"
+        texto += f"\nComplemento: {self.complemento}"
+        texto += f"\nBairro: {self.bairro}"
+        texto += f"\nLocalidade: {self.localidade}"
+        texto += f"\nUF: {self.uf}"
+        return texto
+
     #Properties
+    @property
+    def dados(self):
+        return self.__dados
+    @dados.setter
+    def dados(self, new):
+        self.__dados = new
+        
     @property
     def cep(self):
         return self.__cep
@@ -58,15 +76,24 @@ class Cep():
     @property
     def logradouro(self):
         return self.__logradouro
+    @logradouro.setter
+    def logradouro(self, new):
+        self.__logradouro = new
     
     @property
     def complemento(self):
         return self.__complemento
-    
+    @complemento.setter
+    def complemento(self, new):
+        self.__complemento = new
+
     @property
     def bairro(self):
         return self.__bairro
-    
+    @bairro.setter
+    def bairro(self, new):
+        self.__bairro = new
+
     @property
     def localidade(self):
         return self.__localidade
