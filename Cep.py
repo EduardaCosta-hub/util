@@ -1,8 +1,9 @@
 import re, requests
 class Cep():
     def __init__(self, cep):
-        self.__cep = self.higieniza_cep(cep)
-        self.extrai_informacoes_cep()
+        self.__cep = cep
+       # self.__cep = self.higieniza_cep(cep)
+       # self.extrai_informacoes_cep()
         
     #Methods
     def busca_padrao_cep(self, cep):
