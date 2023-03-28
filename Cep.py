@@ -1,12 +1,9 @@
 import re, requests
 class Cep():
     def __init__(self, cep):
-        self.__cep = cep
-       # self.__cep = self.higieniza_cep(cep)
-       # self.extrai_informacoes_cep()
-        
+        self.__cep = self.higieniza_cep(cep)
     #Methods
-    def busca_padrao_cep(self, cep):
+    def busca_padrao_cep(self,cep):
         padrao = '[0-9]{5}(-)?[0-9]{3}' #o usuário pode inserir o CEP como 12345678 ou 12345-678
         encontra = re.search(padrao, cep)
         if not encontra:
@@ -15,7 +12,7 @@ class Cep():
             cep = encontra.group()
             return cep
     
-    def higieniza_cep(self, cep):
+    def higieniza_cep(self,cep):
         cep = str(cep)
         cep = self.busca_padrao_cep(cep)
         cep = cep.replace('-','') #deixa o CEP no formato 12345678 
