@@ -1,7 +1,15 @@
 import re, requests
+import pytest
 class Cep():
     def __init__(self, cep):
         self.__cep = self.higieniza_cep(cep)
+        self.__dados = None
+        self.__cep_formatado = ""
+        self.__logradouro = ""
+        self.__complemento = "" 
+        self.__bairro = ""
+        self.__localidade = ""
+        self.__uf = ""
     #Methods
     def busca_padrao_cep(self,cep):
         padrao = '[0-9]{5}(-)?[0-9]{3}' #o usuário pode inserir o CEP como 12345678 ou 12345-678

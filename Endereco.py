@@ -3,6 +3,7 @@ class Endereco(Cep):
     def __init__(self, cep):
         super().__init__(cep)
         self.__numero = None
+        self.extrai_informacoes_cep()
         self.verifica_campos_obrigatorios()
 
     #Methods
